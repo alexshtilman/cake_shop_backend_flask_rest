@@ -1,15 +1,10 @@
 """Flask config."""
 import os
 from os import environ, path
-from dotenv import load_dotenv
-
-basedir = path.abspath(path.dirname(__file__))
-load_dotenv(path.join(basedir, '.env'))
-
 
 class Config:
     """Base config."""
-    API_VERSION = '0.9.0'
+    API_VERSION = '0.0.1'
     JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY')
     SETUP_KEY = os.environ.get('SETUP_KEY')
     STATIC_FOLDER = 'static'
@@ -25,6 +20,12 @@ class Config:
     DB_SERVER_PORT = os.environ.get('DB_SERVER_PORT', default="5432")
     SQLALCHEMY_DATABASE_URI = "postgresql://{0}:{1}@{2}:{3}/{4}".format(POSTGRES_USER, POSTGRES_PASSWORD,
                                                                         DB_SERVER_NAME, DB_SERVER_PORT, POSTGRES_DB)
+    DEFAULT_USER_NAME = os.environ.get('DEFAULT_USER_NAME',default='user')
+    DEFAULT_USER_PASSWD = os.environ.get('DEFAULT_USER_PASSWD',default='user')
+
+    DEFAULT_ADMIN_NAME = os.environ.get('DEFAULT_USER_NAME',default='admin')
+    DEFAULT_ADMIN_PASSWD = os.environ.get('DEFAULT_USER_PASSWD',default='admin')
+
 
 
 class ProdConfig(Config):

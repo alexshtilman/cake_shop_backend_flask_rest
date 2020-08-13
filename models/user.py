@@ -1,6 +1,5 @@
 from db import db
 
-from models.session import SessionModel
 from collections.abc import Iterable
 
 
@@ -13,17 +12,14 @@ class UserModel(db.Model):
     password = db.Column(db.String(80))
     role_id = db.Column(db.Integer, db.ForeignKey("roles.role_id"))
     username = db.Column(db.String(80))
-    sessions = db.relationship(SessionModel, primaryjoin=user_id == SessionModel.user_id, lazy='dynamic')
 
-    def __init__(self, user_id, lastname, firstname, position, password, username,  role_id,sessions):
+    def __init__(self, user_id, lastname, firstname, position, password, username,  role_id):
         self.user_id = user_id
         self.lastname = lastname
         self.firstname = firstname
         self.position = position
         self.password = password
         self.username = username
-        if isinstance(sessions, Iterable):
-            self.sessions = sessions
         self.role_id = role_id
 
     def json(self):
