@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>T-system REST API home</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+    <style type="text/css">
+      body > .ui.container {
+        margin-top: 3em;
+      }
+      .ui.action.input input[type="file"] {
+        display: none;
+      }
+      .hidden {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ui container">
+      <h1>T-systems REST Python Flask API
+          {% if mode =='development' %}
+              <i class="ui icon cog red" data-content="Development server" id="status_red"></i>
+          {% else %} <i class="ui icon flask green" data-content="Production server" id="status_green"></i>
+          {% endif %} </h1>
+      <div class="ui secondary pointing menu" id="loggedMenu">
+        <a class="active item">
+          Главная
+        </a>
+        <a class="item" href="/apidocs">
+          АПИ
+        </a>
+        <a class="item">
+          Тесты
+        </a>
+        <div class="right menu">
+          <a class="ui item" onclick="logout()">
+            Выйти
+          </a>
+        </div>
+      </div>
+
+      <div class="ui segment" id="login">
+        <a class="ui ribbon label blue">Авторизация</a>
+        <p></p>
+        <div class="ui form">
+          <div class="fields">
+            <div class="field">
+              <label>Имя пользователя</label>
+              <input type="text" placeholder="Username" id="username" />
+            </div>
+            <div class="field">
+              <label>Пароль</label>
+              <input type="password" id="password" />
+            </div>
+          </div>
+          <div class="ui grid">
+            <div class="four wide column">
+              <div id="progress"></div>
+            </div>
+            <div class="four wide column">
+              <button class="ui button blue" id="loginButton">Войти</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ui segment" id="upload">
+        <a class="ui ribbon label blue">Загрузить файл</a>
+
+        <h2 class="ui header">
+          Тестирование работы функционала загрузки файла
+        </h2>
+        <p>
+          Данная страинца позволяет протестировать работу загрузки файла,
+          сохранение данных о загрузке базу данных и выгрузку в файл.
+        </p>
+        <ol>
+          <li>
+            Пожалуйста выберите файл для загрузки, содержащий данные в формате
+            JSON (доступные расширения *.in, *.out, *.txt)
+          </li>
+          <li>
+            По умолчанию файл будет загружен в первую сессию текущего
+            пользователя
+          </li>
+        </ol>
+        <form id="submitForm">
+          <div class="ui action input">
+            <input type="text" placeholder="filename.in" readonly />
+            <input type="file" name="file" />
+            <div class="ui icon button" id="selectFile">
+              <i class="attach icon"></i>
+            </div>
+          </div>
+          <button
+            class="ui button blue"
+            type="submit"
+            disabled
+            id="upload_button"
+          >
+            Отправить
+          </button>
+        </form>
+      </div>
+      <div class="ui segment" id="sessions">
+        <a class="ui ribbon label green">Сессии</a>
+        <table class="ui celled table">
+          <thead>
+            <tr>
+              <th>sessions</th>
+              <th>sessions_id</th>
+              <th>name</th>
+              <th>timestamp_start</th>
+              <th>timestamp_end</th>
+              <th>steps</th>
+              <th>user_id</th>
+            </tr>
+          </thead>
+          <tbody id="tbodymain">
+            <tr>
+              <td colspan="7">
+                <div class="ui active centered inline loader"></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ui modal" id="details">
+        <div class="header">Детали</div>
+        <div class="scrolling content" id="JSON_massive"></div>
+      </div>
+    </div>
+  </body>
+  <script
+    type="text/javascript"
+    src="/static/main.js?v=04.08.10:09:27"
+  ></script>
+</html>
