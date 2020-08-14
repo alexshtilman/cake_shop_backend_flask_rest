@@ -6,9 +6,6 @@ EXPOSE 5000
 # Tell Python to not generate .pyc
 ENV PYTHONDONTWRITEBYTECODE 1
 
-# Turn off buffering
-ENV PYTHONUNBUFFERED 1
-
 # Install requirements using pip
 ADD requirements.txt .
 RUN python -m pip install -r requirements.txt
