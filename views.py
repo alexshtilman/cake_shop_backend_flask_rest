@@ -12,7 +12,7 @@ api.add_resource(User, '/user/<int:user_id>')
 api.add_resource(UserCreate, "/register")
 api.add_resource(UserList, '/users')
 
-api.add_resource(UserLogin, '/auth')
+api.add_resource(UserLogin, '/login')
 api.add_resource(RefreshToken, '/refresh')
 api.add_resource(UserLogout, '/logout')
 api.add_resource(Setup, '/setup/<string:password>')

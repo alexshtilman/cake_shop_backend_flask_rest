@@ -5,13 +5,14 @@ from flask import Flask
 from flask_restful import Api
 from db import db
 from flasgger import Swagger
+from flask_cors import CORS
 
 app = Flask(__name__)
-
-if os.environ.get('FLASK_ENV') == 'production':
-    app.config.from_object('config.ProdConfig')
+CORS(app)
+if os.environ.get("FLASK_ENV") == "production":
+    app.config.from_object("config.ProdConfig")
 else:
-    app.config.from_object('config.DevConfig')
+    app.config.from_object("config.DevConfig")
 
 db.init_app(app)
 api = Api(app)
@@ -30,15 +31,11 @@ template = {
         "contact": {
             "email": "gungam@outlook.com",
         },
-        "version": app.config['API_VERSION']
+        "version": app.config["API_VERSION"],
     },
     "securityDefinitions": {
-        'Bearer': {
-            'type': 'apiKey',
-            'name': 'Authorization',
-            'in': 'header'
-        }
-    }
+        "Bearer": {"type": "apiKey", "name": "Authorization", "in": "header"}
+    },
 }
 
 swagger = Swagger(app, template=template)
