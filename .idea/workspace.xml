@@ -2,59 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9cba9e7-17ce-4224-a61e-dca12a9cfb85" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/README" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/alembic.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/env.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/script.py.mako" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/categories.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/discounts.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/shop.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/auth.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/google.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/shop.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/common~main.327b8357a68d0efd8dd8.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/favicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/images/fb6f3c230cb846e25247dfaa1da94d8f.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/main.1c92c94d538bcf3cfbd7.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/main.418807d43ff1c886eef9.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/manifest.b8cad43d68fc941a7165.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/node_vendors.1c92c94d538bcf3cfbd7.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/node_vendors.f058b0eaa23b277a4faf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/node_vendors.f058b0eaa23b277a4faf.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/2018-06-07_10-05-27_UTC_1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/2018-07-07_11-20-09_UTC.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/2018-07-27_08-50-00_UTC.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/2018-08-15_09-30-50_UTC.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/2018-09-17_06-06-44_UTC.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/2018-09-28_09-09-44_UTC.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/2018-10-17_09-08-36_UTC.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/2019-07-21_05-47-37_UTC.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/role.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/home.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/home.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/role.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/62d9dae4e0040e81c980950003df0e07.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/6729d29753e000c17489ed43135ba8d5.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/9c4845b4b41ef40a22faee76144fa816.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/a01e3f2d6c83dc3aee175e2482b3f777.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bundle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/c656b8caa454ed19b9a2ef7f4f5b8fea.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/square-image.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/square-image2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +76,7 @@
       <workItem from="1602230044562" duration="7730000" />
       <workItem from="1602239353302" duration="3593000" />
       <workItem from="1602244361382" duration="5813000" />
-      <workItem from="1602268309864" duration="1746000" />
+      <workItem from="1602268309864" duration="1899000" />
     </task>
     <servers />
   </component>
