@@ -8,3 +8,4 @@
 1. install venv: `virtualenv -p python3.6 venv`
 1. activate venv: `source ./venv/bin/activate`
 1. install dependencies: `pip install -r requirements.txt`
+1. when you need to add new library's `pip freeze | grep -v "pkg-resources" > requirements.txt`

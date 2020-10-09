@@ -10,6 +10,9 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ADD requirements.txt .
 RUN python -m pip install -r requirements.txt
 
+RUN echo "Europe/Moscow" > /etc/timezone
+RUN dpkg-reconfigure -f noninteractive tzdata
+
 # Set working directory and addour Flask API files
 WORKDIR /app
 ADD . /app

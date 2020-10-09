@@ -1,43 +1,40 @@
 from db import db
 
-from collections.abc import Iterable
-
 
 class UserModel(db.Model):
     __tablename__ = "users"
-    user_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    lastname = db.Column(db.String(80))
-    firstname = db.Column(db.String(80))
-    position = db.Column(db.String(80))
+    unique_id = db.Column(db.String, unique=True, primary_key=True)
     password = db.Column(db.String(80))
-    role_id = db.Column(db.Integer, db.ForeignKey("roles.role_id"))
-    username = db.Column(db.String(80))
+    is_admin = db.Column(db.BOOLEAN)
+    users_name = db.Column(db.String(80))
+    users_email = db.Column(db.String, nullable=False)
+    profile_pic = db.Column(db.String)
 
-    def __init__(self, user_id, lastname, firstname, position, password, username,  role_id):
-        self.user_id = user_id
-        self.lastname = lastname
-        self.firstname = firstname
-        self.position = position
+    def __init__(self, unique_id, password, is_admin, users_name, users_email, profile_pic):
+        self.unique_id = unique_id
         self.password = password
-        self.username = username
-        self.role_id = role_id
+        self.is_admin = is_admin
+        self.users_name = users_name
+        self.users_email = users_email
+        self.profile_pic = profile_pic
 
     def json(self):
-        return {'user_id': self.user_id,
-                'lastname': self.lastname,
-                'firstname': self.firstname,
-                'position': self.position,
-                'username': self.username,
-                'role_id': self.role_id
+        return {
+                'unique_id': self.unique_id,
+                'password': self.password,
+                'is_admin': self.is_admin,
+                'users_name': self.users_name,
+                'users_email': self.users_email,
+                'profile_pic': self.profile_pic
                 }
 
     @classmethod
-    def find_by_username(cls, username):
-        return cls.query.filter_by(username=username).first()
+    def find_by_username(cls, users_name):
+        return cls.query.filter_by(username=users_name).first()
 
     @classmethod
-    def find_by_id(cls, user_id):
-        return cls.query.filter_by(user_id=user_id).first()
+    def find_by_id(cls, unique_id):
+        return cls.query.filter_by(unique_id=unique_id).first()
 
     @classmethod
     def get_all(cls):

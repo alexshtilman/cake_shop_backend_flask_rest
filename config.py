@@ -1,21 +1,38 @@
 """Flask config."""
 import os
 from os import environ, path
+from dotenv import load_dotenv
+
+basedir = path.abspath(path.dirname(__file__))
+load_dotenv(path.join(basedir, ".env"))
 
 
 class Config:
     """Base config."""
 
-    API_VERSION = "1.0.0"
+    API_VERSION = "0.9.0"
+    JWT_SECRET_KEY = os.environ.get("JWT_SECRET_KEY")
+    SETUP_KEY = os.environ.get("SETUP_KEY")
     STATIC_FOLDER = "static"
+    STATIC_URL = os.environ.get("STATIC_URL")
     TEMPLATES_FOLDER = "templates"
     JWT_BLACKLIST_ENABLED = True
     JWT_BLACKLIST_TOKEN_CHECKS = ["access", "refresh"]
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    DEFAULT_USER_NAME = os.environ.get("DEFAULT_USER_NAME", default="user")
-    DEFAULT_USER_PASSWD = os.environ.get("DEFAULT_USER_PASSWD", default="user")
-    DEFAULT_ADMIN_NAME = os.environ.get("DEFAULT_USER_NAME", default="admin")
-    DEFAULT_ADMIN_PASSWD = os.environ.get("DEFAULT_USER_PASSWD", default="admin")
+    POSTGRES_PASSWORD = os.environ.get("POSTGRES_PASSWORD")
+    POSTGRES_USER = os.environ.get("POSTGRES_USER")
+    POSTGRES_DB = os.environ.get("POSTGRES_DB")
+    DB_SERVER_NAME = os.environ.get("DB_SERVER_NAME")
+    DB_SERVER_PORT = os.environ.get("DB_SERVER_PORT")
+    SQLALCHEMY_DATABASE_URI = "postgresql://{0}:{1}@{2}:{3}/{4}".format(
+        POSTGRES_USER, POSTGRES_PASSWORD, DB_SERVER_NAME, DB_SERVER_PORT, POSTGRES_DB
+    )
+    MAX_CONTENT_LENGTH = 16 * 1024 * 1024
+    DEFAULT_ADMIN = os.environ.get("DEFAULT_ADMIN")
+    DEFAULT_ADMIN_EMAIL = os.environ.get("DEFAULT_ADMIN_EMAIL")
+    DEFAULT_ADMIN_PASSWD = os.environ.get("DEFAULT_ADMIN_PASSWD")
+    GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", None)
+    GOOGLE_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET", None)
     GOOGLE_DISCOVERY_URL = (
         "https://accounts.google.com/.well-known/openid-configuration"
     )
@@ -24,32 +41,8 @@ class Config:
 class ProdConfig(Config):
     DEBUG = False
     TESTING = False
-    GOOGLE_CLIENT_ID = open("/run/secrets/google_client_id", "r").read().strip()
-    GOOGLE_CLIENT_SECRET = open("/run/secrets/google_client_secret", "r").read().strip()
-    JWT_SECRET_KEY = open("/run/secrets/jwt_secret_key", "r").read().strip()
-    SETUP_KEY = open("/run/secrets/setup_key", "r").read().strip()
-    POSTGRES_PASSWORD = open("/run/secrets/psql_password", "r").read().strip()
-    POSTGRES_USER = open("/run/secrets/psql_user", "r").read().strip()
-    POSTGRES_DB = open("/run/secrets/psql_db", "r").read().strip()
-    DB_SERVER_NAME = "db"
-    DB_SERVER_PORT = "5432"
-    SQLALCHEMY_DATABASE_URI = "postgresql://{0}:{1}@{2}:{3}/{4}".format(
-        POSTGRES_USER, POSTGRES_PASSWORD, DB_SERVER_NAME, DB_SERVER_PORT, POSTGRES_DB
-    )
 
 
 class DevConfig(Config):
     DEBUG = True
     TESTING = True
-    JWT_SECRET_KEY = "My_Secret_key"
-    SETUP_KEY = "my_setup_key"
-    POSTGRES_PASSWORD = "dev_password"
-    POSTGRES_USER = "dev_user"
-    POSTGRES_DB = "127.0.0.1"
-    DB_SERVER_NAME = "db"
-    DB_SERVER_PORT = "5432"
-    SQLALCHEMY_DATABASE_URI = "postgresql://{0}:{1}@{2}:{3}/{4}".format(
-        POSTGRES_USER, POSTGRES_PASSWORD, DB_SERVER_NAME, DB_SERVER_PORT, POSTGRES_DB
-    )
-    GOOGLE_CLIENT_ID = open("/run/secrets/google_client_id", "r").read().strip()
-    GOOGLE_CLIENT_SECRET = open("/run/secrets/google_client_secret", "r").read().strip()
